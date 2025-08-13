@@ -1,7 +1,3 @@
-# CLAUDE.md
-
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 ## Project Overview
 
 This is a performance testing repository for Claude Code with Google Vertex AI. It demonstrates and reproduces slow connection issues when Claude Code attempts to connect to Google's metadata server (169.254.169.254:80) during Vertex AI authentication.
