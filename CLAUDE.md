@@ -23,6 +23,19 @@ VERTEX_PROJECT_ID=your-project-id make build run
 make build run VERTEX_PROJECT_ID=your-project-id
 ```
 
+### Skip Authentication Steps
+For testing or when authentication is already configured:
+```bash
+# Skip gcloud auth login step
+make run SKIP_GCLOUD_AUTH_LOGIN=1
+
+# Skip gcloud config set project step
+make run SKIP_GCLOUD_CONFIG_SET_PROJECT=1
+
+# Skip both steps
+SKIP_GCLOUD_AUTH_LOGIN=1 SKIP_GCLOUD_CONFIG_SET_PROJECT=1 make run
+```
+
 ## Testing Environment
 
 The project uses a containerized Alpine Linux environment with:
@@ -43,6 +56,8 @@ The `test.sh` script demonstrates the performance issue through a systematic app
 ## Environment Variables
 
 - `VERTEX_PROJECT_ID` - Google Cloud project ID (default: `avalabs-sec-app-env`, customizable at build time)
+- `SKIP_GCLOUD_AUTH_LOGIN` - Skip `gcloud auth login` step if set (optional)
+- `SKIP_GCLOUD_CONFIG_SET_PROJECT` - Skip `gcloud config set project` step if set (optional)
 - `CLAUDE_CODE_USE_VERTEX=1` - Enable Vertex AI backend
 - `CLOUD_ML_REGION=us-east5` - Vertex AI region
 - `ANTHROPIC_VERTEX_PROJECT_ID` - Project ID for Anthropic Vertex integration
